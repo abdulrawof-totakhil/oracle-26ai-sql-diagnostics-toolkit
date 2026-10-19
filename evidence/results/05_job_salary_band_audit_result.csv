@@ -1,0 +1,20 @@
+"JOB_ID","JOB_TITLE","POLICY_MIN_SALARY","POLICY_MAX_SALARY","EMPLOYEE_COUNT","OUTSIDE_POLICY_RANGE","AVERAGE_SALARY"
+"AC_ACCOUNT","Public Accountant",4200,9000,1,0,8300
+"AC_MGR","Accounting Manager",8200,16000,1,0,12008
+"AD_ASST","Administration Assistant",3000,6000,1,0,4400
+"AD_PRES","President",20080,40000,1,0,24000
+"AD_VP","Administration Vice President",15000,30000,2,0,17000
+"FI_ACCOUNT","Accountant",4200,9000,5,0,7920
+"FI_MGR","Finance Manager",8200,16000,1,0,12008
+"HR_REP","Human Resources Representative",4000,9000,1,0,6500
+"IT_PROG","Programmer",4000,10000,5,0,5760
+"MK_MAN","Marketing Manager",9000,15000,1,0,13000
+"MK_REP","Marketing Representative",4000,9000,1,0,6000
+"PR_REP","Public Relations Representative",4500,10500,1,0,10000
+"PU_CLERK","Purchasing Clerk",2500,5500,5,0,2780
+"PU_MAN","Purchasing Manager",8000,15000,1,0,11000
+"SA_MAN","Sales Manager",10000,20080,5,0,12200
+"SA_REP","Sales Representative",6000,12008,30,0,8350
+"SH_CLERK","Shipping Clerk",2500,5500,20,0,3215
+"ST_CLERK","Stock Clerk",2008,5000,20,0,2785
+"ST_MAN","Stock Manager",5500,8500,5,0,7280

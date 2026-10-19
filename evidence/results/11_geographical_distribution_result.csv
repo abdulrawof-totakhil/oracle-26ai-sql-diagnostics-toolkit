@@ -1,0 +1,15 @@
+"REGION_NAME","COUNTRY_NAME","LOCATION_COUNT","DEPARTMENT_COUNT","EMPLOYEE_COUNT"
+"Americas","United States of America",4,23,68
+"Europe","United Kingdom of Great Britain and Northern Ireland",3,2,35
+"Americas","Canada",2,1,2
+"Europe","Germany",1,1,1
+"Americas","Brazil",1,0,0
+"Americas","Mexico",1,0,0
+"Asia","China",1,0,0
+"Asia","India",1,0,0
+"Asia","Japan",2,0,0
+"Asia","Singapore",1,0,0
+"Europe","Italy",2,0,0
+"Europe","Netherlands",1,0,0
+"Europe","Switzerland",2,0,0
+"Oceania","Australia",1,0,0
