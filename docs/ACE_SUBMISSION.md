@@ -2,12 +2,12 @@
 
 ## What the project demonstrates
 
-A SQL diagnostics and data-quality toolkit using Oracle AI Database 26ai's FreeSQL worksheet with the public HR sample schema. Twelve scripts were executed during a hands-on session on 19 October 2026; the exports and screenshots accompany the repository. The scripts cover data quality, referential integrity, hierarchical SQL, analytic SQL, and consolidated rule-based reporting.
+A SQL diagnostics and data-quality toolkit using Oracle AI Database 26ai's FreeSQL worksheet with the public HR sample schema. The original 12 SQL scripts and a supplemental DQ-005 script were executed during hands-on sessions on 19 October 2026; their exports and screenshots accompany the repository. The scripts cover data quality, referential integrity, hierarchical SQL, analytic SQL, and consolidated rule-based reporting.
 
 ## Before you submit to Oracle ACE
 
 - [ ] Review and understand every SQL statement in `sql/`.
-- [ ] Add **one meaningful enhancement of your own** (for example, a new rule for duplicate emails or an additional timeline test); document why you designed it, your actual test results, and screenshots.
+- [ ] Review the AI-assisted DQ-005 enhancement, understand and explain its rule, and accurately document your own testing and specific design decisions. If claiming independent code authorship, make and test a meaningful personal code change.
 - [ ] Update README and RESULTS_LOG to reflect **your** changes, not just the AI-assisted starter work.
 - [ ] Check ACE Dashboard → Product Usage → Contributions for category, point values, evidence upload requirements, and approval state.
 - [ ] Remove any data that is sensitive, company-specific, or unnecessarily identifying before committing.
@@ -23,7 +23,16 @@ A SQL diagnostics and data-quality toolkit using Oracle AI Database 26ai's FreeS
 
 ## Evidence index
 
-- `evidence/results/`: CSV exports, one for each script (session context redacted).
-- `evidence/screenshots/`: actual worksheet execution screenshots (session context redacted).
+- `evidence/results/`: 12 baseline CSV exports plus two DQ-005 CSV exports (session context redacted).
+- `evidence/screenshots/`: 12 baseline worksheet screenshots and two DQ-005 execution screenshots (session context redacted).
 - `docs/RESULTS_LOG.md`: complete findings and caveats.
 - `docs/TEST_PLAN.md`: reproducibility information.
+
+
+## Supplemental DQ-005 evidence
+
+- DQ-005 is a **separate 13th script**, not part of the original 12-control scorecard.
+- The contributor executed both the public HR sample query (PASS / 0 duplicates) and the six-row synthetic positive case (REVIEW / 2 groups and 4 affected rows). Real screenshots demonstrate both.
+- The two FreeSQL CSV exports are included; their results match the screenshots and have passed the merged-repository offline checks.
+- The new SQL, synthetic test, and documentation were drafted with AI assistance. Do not describe them as independently authored without accurately describing personal modifications, understanding, and tests.
+- DQ-005 does not confer an additional Oracle ACE point value automatically; assessment belongs to the ACE team.

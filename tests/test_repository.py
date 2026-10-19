@@ -16,10 +16,10 @@ def csvrows(basename):
 class TestRepository(unittest.TestCase):
     def test_complete_script_inventory(self):
         scripts = sorted((ROOT / "sql").glob("*.sql"))
-        self.assertEqual(12, len(scripts))
-        self.assertEqual([f"{i:02d}" for i in range(12)], [s.stem[:2] for s in scripts])
-        self.assertEqual(12, len(list(RESULTS.glob("*_result.csv"))))
-        self.assertEqual(12, len(list((ROOT / "evidence" / "screenshots").glob("*.png"))))
+        self.assertEqual(13, len(scripts))
+        self.assertEqual([f"{i:02d}" for i in range(13)], [s.stem[:2] for s in scripts])
+        self.assertEqual(14, len(list(RESULTS.glob("*_result.csv"))))
+        self.assertEqual(14, len(list((ROOT / "evidence" / "screenshots").glob("*.png"))))
 
     def test_sql_is_structurally_read_only(self):
         for script in (ROOT / "sql").glob("*.sql"):
@@ -49,6 +49,22 @@ class TestRepository(unittest.TestCase):
         assigned = sum(int(r["EMPLOYEE_COUNT"]) for r in deps)
         self.assertEqual(assigned + int(dq["MISSING_DEPARTMENT"]), int(profile["EMPLOYEE_COUNT"]))
         self.assertEqual(assigned, sum(int(r["EMPLOYEE_COUNT"]) for r in geo))
+
+    def test_dq005_live_and_synthetic_evidence(self):
+        # Both genuine FreeSQL CSV exports are required for the published enhancement.
+        live = csvrows("12_duplicate_email_audit_result.csv")
+        synth = csvrows("12_duplicate_email_synthetic_result.csv")
+        self.assertEqual(1, len(live))
+        self.assertEqual(1, len(synth))
+        self.assertEqual("DQ-005", live[0]["CONTROL_ID"])
+        self.assertEqual("PASS", live[0]["STATUS"])
+        self.assertEqual(0, int(live[0]["DUPLICATE_GROUP_COUNT"]))
+        self.assertEqual(0, int(live[0]["AFFECTED_EMPLOYEE_COUNT"]))
+        self.assertEqual(0, int(live[0]["ISSUE_COUNT"]))
+        self.assertEqual("REVIEW", synth[0]["STATUS"])
+        self.assertEqual(2, int(synth[0]["DUPLICATE_GROUP_COUNT"]))
+        self.assertEqual(4, int(synth[0]["AFFECTED_RECORDS"]))
+        self.assertEqual(2, int(synth[0]["ISSUE_COUNT"]))
 
     def test_session_identity_redacted(self):
         rows=csvrows("00_session_context_result.csv")

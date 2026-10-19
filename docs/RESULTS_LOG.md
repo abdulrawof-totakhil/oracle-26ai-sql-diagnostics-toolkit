@@ -39,9 +39,22 @@ The raw FreeSQL session identifier appeared in the original session-context CSV/
 
 ## Evidence completeness
 
-- 12 SQL scripts: present.
-- 12 CSV outputs: present.
-- 12 screenshot captures: present.
+- Baseline: 12 SQL scripts, 12 CSV outputs, and 12 screenshot captures: present.
+- Supplemental DQ-005: 1 SQL script, 2 CSV outputs, and 2 screenshots: present.
 - AI-assisted starter code: acknowledged in README.
 - Independently designed user enhancement: **TO DO** (implement, execute, screenshot, and document before ACE submission).
 - Final ACE approval/points: **NOT YET CONFIRMED**.
+
+
+## Added control — DQ-005 (19 October 2026)
+
+Two user-supplied FreeSQL screenshots confirm the **duplicate-email normalization logic** was executed after the original 12-control snapshot. The new control is separate from that historical scorecard:
+
+| Execution | Duplicate groups | Affected records | Extra rows | Status |
+| --- | ---: | ---: | ---: | --- |
+| Public HR sample (`sql/12_duplicate_email_audit.sql`) | 0 | 0 | 0 | PASS |
+| In-memory positive test (`tests/12_duplicate_email_synthetic.sql`) | 2 | 4 | 2 | REVIEW |
+
+Method: `UPPER(TRIM(email))`, group by the normalized value, exclude NULL/blank results, and report group totals without publishing employee email values. The synthetic test uses six inline `SELECT` rows and makes **no** database changes. Both contributor-supplied FreeSQL CSV exports have been added under `evidence/results/` and agree with the screenshot values; offline test evidence checks pass.
+
+The `11 PASS / 1 REVIEW / 0 FAIL` finding remains the **original 12-control scorecard**, not a recomputed 13-control scorecard.
